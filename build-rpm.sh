@@ -26,7 +26,7 @@ group="$user"
 tarball="apache-tomcat-${version}.tar.gz"
 git_user=$(git config --get-all user.name)
 git_email=$(git config --get-all user.email)
-maintainer="git_user <$git_email>"
+maintainer="$git_user <$git_email>"
 root_dir=$(git rev-parse --show-toplevel)
 tmp_dir='tmp'
 
@@ -108,7 +108,7 @@ fpm \
   --license 'Apache' \
   --description "$package_name - Built from release apache-tomcat-${version}.tar.gz" \
   --architecture "$arch" \
-  --maintainer 'David Wooldridge <zombie@zombix.org>' \
+  --maintainer "$maintainer" \
   --directories /${prefix_dir}/${package_name} \
   --directories /var/run/${package_name} \
   --directories /var/log/${package_name} \

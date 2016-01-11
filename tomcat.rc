@@ -46,7 +46,6 @@ case "$1" in
     ;;
   version)
     if [ -f $CATALINA_HOME/bin/version.sh ]; then
-      logger -s "Display Tomcat Version"
       /bin/su -l $TOMCAT_USER -c $CATALINA_HOME/bin/version.sh
       RETVAL=$?
     fi
